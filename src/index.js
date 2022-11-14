@@ -29,19 +29,34 @@ const handleMerc = () => {
 const handleVen = () => {
   clearResponse();
   createPerson();
-
+  const h3 = document.createElement("h3");
+  h3.append("Age on Venus: ");
+  const p = document.createElement("p");
+  p.append(window.personObj.onVenus());
+  document.getElementById("response").append(h3);
+  document.getElementById("response").append(p);
 };
 
 const handleMars = () => {
   clearResponse();
   createPerson();
-
+  const h3 = document.createElement("h3");
+  h3.append("Age on Mars: ");
+  const p = document.createElement("p");
+  p.append(window.personObj.onMars());
+  document.getElementById("response").append(h3);
+  document.getElementById("response").append(p);
 };
 
 const handleJup = () => {
   clearResponse();
   createPerson();
-
+  const h3 = document.createElement("h3");
+  h3.append("Age on Jupiter: ");
+  const p = document.createElement("p");
+  p.append(window.personObj.onJupiter());
+  document.getElementById("response").append(h3);
+  document.getElementById("response").append(p);
 };
 
 window.addEventListener("load", function () {
