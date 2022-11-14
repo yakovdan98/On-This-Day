@@ -12,38 +12,38 @@ export class Person {
   }
 
   onMercury() {
-    return Math.floor(this.age * this.mercConv);
+    return Math.floor(this.age / this.mercConv);
   }
 
   onVenus(){
-    return Math.floor(this.age * this.venusConv);
+    return Math.floor(this.age / this.venusConv);
   }
 
   onMars(){
-    return Math.floor(this.age * this.marsConv);
+    return Math.floor(this.age / this.marsConv);
   }
 
   onJupiter(){
-    return Math.floor(this.age * this.jupiterConv);
+    return Math.floor(this.age / this.jupiterConv);
   }
 
   onMercuryLeft(){
-    let convAge =  Math.abs((this.expectancy - this.age)*this.mercConv);
+    let convAge =  Math.abs((this.expectancy - this.age)/this.mercConv);
     return Math.floor(convAge);
   }
 
   onVenusLeft(){
-    let convAge =  Math.abs((this.expectancy - this.age)*this.venusConv);
+    let convAge =  Math.abs((this.expectancy - this.age)/this.venusConv);
     return Math.floor(convAge);
   }
 
   onMarsLeft(){
-    let convAge =  Math.abs((this.expectancy - this.age)*this.marsConv);
+    let convAge =  Math.abs((this.expectancy - this.age)/this.marsConv);
     return Math.floor(convAge);
   }
 
   onJupiterLeft(){
-    let convAge =  Math.abs((this.expectancy - this.age)*this.jupiterConv);
+    let convAge =  Math.abs((this.expectancy - this.age)/this.jupiterConv);
     return Math.floor(convAge);
   }
 }
