@@ -12,64 +12,64 @@ describe('calculate persons age on different planets', () => {
 
   //age on planet
   test('should return age of person on mercury', () => {
-    expect(person.onMercury()).toEqual(5);
+    expect(person.onMercury()).toEqual(95);
   });
 
   test('should return age of person on venus', () => {
 
-    expect(person.onVenus()).toEqual(14);
+    expect(person.onVenus()).toEqual(37);
   });
 
   test('should return age of person on mars', () => {
 
-    expect(person.onMars()).toEqual(43);
+    expect(person.onMars()).toEqual(12);
   });
 
   test('should return age of person on jupiter', () => {
 
-    expect(person.onJupiter()).toEqual(272);
+    expect(person.onJupiter()).toEqual(1);
   });
 
 
   //Years left
   test('should return years left on mercury', () => {
 
-    expect(person.onMercuryLeft()).toEqual(12);
+    expect(person.onMercuryLeft()).toEqual(216);
   });
   
   test('should return years left on venus', () => {
 
-    expect(person.onVenusLeft()).toEqual(32);
+    expect(person.onVenusLeft()).toEqual(83);
   });
   
   test('should return years left on mars', () => {
 
-    expect(person.onMarsLeft()).toEqual(97);
+    expect(person.onMarsLeft()).toEqual(27);
   });
   
   test('should return years left on jupiter', () => {
 
-    expect(person.onJupiterLeft()).toEqual(616);
+    expect(person.onJupiterLeft()).toEqual(4);
   });
 
   //years lived past expectancy
   test('should return years past life expectancy on mercury', () => {
 
-    expect(oldPerson.onMercuryLeft()).toEqual(1);
+    expect(oldPerson.onMercuryLeft()).toEqual(20);
   });
   
   test('should return years past life expectancy on venus', () => {
 
-    expect(oldPerson.onVenusLeft()).toEqual(3);
+    expect(oldPerson.onVenusLeft()).toEqual(8);
   });
   
   test('should return years past life expectancy on mars', () => {
 
-    expect(oldPerson.onMarsLeft()).toEqual(9);
+    expect(oldPerson.onMarsLeft()).toEqual(2);
   });
   
   test('should return years past life expectancy on jupiter', () => {
 
-    expect(oldPerson.onJupiterLeft()).toEqual(59);
+    expect(oldPerson.onJupiterLeft()).toEqual(0);
   });
 });

@@ -11,6 +11,12 @@ const handleSubmission = (event) => {
   const age = document.getElementById("age").value;
   const lifeExp = document.getElementById("life-exp").value;
   window.person = new Person(name, age, lifeExp);
+
+  document.getElementById("response").innerText = "Age: \n" +
+  "on Mercury: " + window.person.onMercury() + "\n"+
+  "on Venus: " + window.person.onVenus() + "\n" +
+  "on Mars: " + window.person.onMars() + "\n" +
+  "on Jupiter: " + window.person.onJupiter() + "\n";
 };
 
 window.addEventListener("load", function () {
