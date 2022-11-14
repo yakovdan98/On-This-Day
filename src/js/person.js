@@ -11,4 +11,35 @@ export class Person {
     this.jupiterConv = 11.86;
   }
 
+  onMercury() {
+
+  }
+
+  onVenus(){
+
+  }
+  
+  onMars(){
+
+  }
+
+  onJupiter(){
+
+  }
+
+  onMercuryLeft(){
+
+  }
+
+  onVenusLeft(){
+
+  }
+
+  onMarsLeft(){
+
+  }
+
+  onJupiterLeft(){
+
+  }
 }
