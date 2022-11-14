@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="en-US">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
-    <title>Haiku Maker</title>
+    <title>Galactic Age Calculator</title>
   </head>
 <body>
   <div class="container">
-    <H1>Haiku Maker</H1>
-    <form id="haiku-form">
+    <H1>Your Age on different planets!</H1>
+    <form id="person">
       <div class="form-group row">
-        <label for="haiku" class="col-2 col-form-label">Your Haiku</label>
-        <div class="col-10">
-          <textarea id="haiku" name="haiku" cols="40" rows="5" class="form-control"></textarea>
+        <label for="name" class="col-4 col-form-label">Name</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-address-book"></i>
+              </div>
+            </div> 
+            <input id="name" name="name" type="text" class="form-control">
+          </div>
         </div>
       </div>
       <div class="form-group row">
-        <div class="offset-2 col-8">
+        <label for="age" class="col-4 col-form-label">Age</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-align-right"></i>
+              </div>
+            </div> 
+            <input id="age" name="age" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="life-exp" class="col-4 col-form-label">Life Expectancy</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-calendar"></i>
+              </div>
+            </div> 
+            <input id="life-exp" name="life-exp" type="text" class="form-control">
+          </div>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <div class="offset-4 col-8">
           <button name="submit" type="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
