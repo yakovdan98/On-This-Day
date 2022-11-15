@@ -38,7 +38,11 @@ const handleSubmission = (planet, left) => {
       break;
     }
   } else {
-    h3.append("Years left on " + planet + ": ");
+    if(document.getElementById("life-exp").value > document.getElementById("age").value){
+      h3.append("Years left on " + planet + ": ");
+    } else {
+      h3.append("Years past life expectancy on " + planet + ": ");
+    }
     switch (planet) {
     case "Mercury":
       p.append(window.personObj.onMercuryLeft());
