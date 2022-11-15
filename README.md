@@ -1,8 +1,13 @@
-# Age Calculator
+# Language Picker
 
-#### By Daniel Yakovlev
+## Contributers
+* Daniel Yakovlev
 
-####
+## Description
+A website that takes user input through radio buttons and outputs a programming language they should learn
+
+## Github Pages Link
+<https://yakovdan98.github.io/Age-Calculator/>
 
 ## Technologies Used
 
@@ -17,20 +22,36 @@
 * ESLint
 
 ## Description
+A website that takes your age an expected age and outputs your age and years left on different planets in the solar system such as mercury, venus, mars, and jupiter.
 
-### Objectives (MVP)
 
 
-### Goals
-
+## Application Setup Github Pages
+1. Open with link <https://yakovdan98.github.io/Age-Calculator/>
 
 ## Setup/Installation Requirements
 
-
+* Clone this repo to your workspace.
+* Navigate to the top level of the directory.
+* In the root directory of the project, run:
+```
+$ npm install
+```
+* Then, to build and serve the project, run: 
+```
+$ npm run start
+```
+* To lint project, run:
+```
+$ npm run lint
+```
+To run tests with Jest, run:
+```
+$ npm run test
 ```
 
 ## Known Bugs
-
+* _none_
 
 ## License
 
