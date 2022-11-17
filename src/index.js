@@ -1,91 +1,97 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import { Person } from './js/person.js';
+import ApodService from './js/apod-service.js';
+import WikiService from './js/wiki-service';
 
-// UI Logic
-const createPerson = () => {
-  const name = document.getElementById("name").value;
-  const age = document.getElementById("age").value;
-  const lifeExp = document.getElementById("life-exp").value;
-  window.personObj = new Person(name, age, lifeExp);
-};
+// proooororoer asdgsi92m sdw pmdasd grimd liasdop lenfdi lxncwqincls
+function getApodImg(date) {
+  let promise = ApodService.getApod(date);
+  promise.then(function(apodServiceData) {
+    printPicture(apodServiceData);
+  }, function(apodErrorArray) {
+    printError(apodErrorArray);
+  });
+}
 
-const clearResponse = () => {
-  document.getElementById("response").innerText = null;
-};
+function getWikiEntry(date) {
+  setTimeout(() => {
+    const dateArr = date.split("-");
+    let promise = WikiService.getWiki(dateArr[2], dateArr[1]);
+    promise.then(function(wikiData) {
+      printWiki(wikiData);
+    }, function(wikiError) {
+      printWikiError(wikiError);
+    });
+  }, 1000);
 
-const handleSubmission = (planet, left) => {
-  clearResponse();
-  createPerson();
-  const h3 = document.createElement("h3");
-  const p = document.createElement("p");
+}
 
-  if (!left) {
-    h3.append("Age on " + planet + ": ");
-    switch (planet) {
-    case "Mercury":
-      p.append(window.personObj.onMercury());
-      break;
-    case "Venus":
-      p.append(window.personObj.onVenus());
-      break;
-    case "Mars":
-      p.append(window.personObj.onMars());
-      break;
-    case "Jupiter":
-      p.append(window.personObj.onJupiter());
-      break;
-    }
-  } else {
-    if(document.getElementById("life-exp").value > document.getElementById("age").value){
-      h3.append("Years left on " + planet + ": ");
-    } else {
-      h3.append("Years past life expectancy on " + planet + ": ");
-    }
-    switch (planet) {
-    case "Mercury":
-      p.append(window.personObj.onMercuryLeft());
-      break;
-    case "Venus":
-      p.append(window.personObj.onVenusLeft());
-      break;
-    case "Mars":
-      p.append(window.personObj.onMarsLeft());
-      break;
-    case "Jupiter":
-      p.append(window.personObj.onJupiterLeft());
-      break;
-    }
+function currentDate(userDate) {
+  const [ userYear, userMonth, userDay] = userDate.split('-');
+  let date = new Date();
+  let dateArray = date.toLocaleDateString().split('/');//month / day / year
+  const [ month, day, year ] = dateArray;
+
+  if (year === userYear && month === userMonth && day < userDay) {
+    return false;
+  } else if (year === userYear && month < userMonth) {
+    return false;
+  } else if (year < userYear) {
+    return false;
   }
-  document.getElementById("response").append(h3);
-  document.getElementById("response").append(p);
-};
+  return true;
+}
 
+// let a, b, rest;
+// [a, b] = [10, 20];
+
+function handleSubmission(e) {
+  e.preventDefault();
+  //handle error
+  document.getElementById('response').innerHTML = null;
+  let date = document.getElementById('date').value;
+  if (currentDate(date) === true) {
+    getApodImg(date);
+    getWikiEntry(date);
+    
+  } else {
+    printNotValidDate(date);
+  }
+}
+// UI Logic
+function printNotValidDate(userDate) {
+  document.getElementById('response').innerText = `${userDate} is not a valid date`;
+}
+
+function printPicture(data) {
+  let img = document.createElement('img');
+  img.setAttribute('src', data.url);
+  document.getElementById('response').append(img);
+  
+}
+
+function printError(error) {
+  document.getElementById('response').innerText = (`There was an error! ${error[0].status}: ${error[1].msg}`);
+}
+
+function printWiki(data) {
+  const p = document.createElement("p");
+  const size = data.selected.length;
+  const randEvent = Math.floor(Math.random() * size);
+  p.innerText = data.selected[randEvent].text;
+  document.getElementById("response").append(p);
+  let img = document.createElement('img');
+  img.setAttribute('src', data.selected[randEvent].pages[0].originalimage.source);
+  img.setAttribute('width', '400px');
+  img.setAttribute('height', 'auto');
+  document.getElementById('response').append(img);
+}
+
+function printWikiError(error){
+  
+}
 
 window.addEventListener("load", function () {
-  this.document.getElementById("btn-merc").addEventListener("click", function () {
-    handleSubmission("Mercury", false);
-  });
-  this.document.getElementById("btn-ven").addEventListener("click", function () {
-    handleSubmission("Venus", false);
-  });
-  this.document.getElementById("btn-mars").addEventListener("click", function () {
-    handleSubmission("Mars", false);
-  });
-  this.document.getElementById("btn-jup").addEventListener("click", function () {
-    handleSubmission("Jupiter", false);
-  });
-  this.document.getElementById("btn-merc-left").addEventListener("click", function () {
-    handleSubmission("Mercury", true);
-  });
-  this.document.getElementById("btn-ven-left").addEventListener("click", function () {
-    handleSubmission("Venus", true);
-  });
-  this.document.getElementById("btn-mars-left").addEventListener("click", function () {
-    handleSubmission("Mars", true);
-  });
-  this.document.getElementById("btn-jup-left").addEventListener("click", function () {
-    handleSubmission("Jupiter", true);
-  });
+  document.getElementById("date-form").addEventListener('submit', handleSubmission);
 });

@@ -1,73 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
-    <title>Galactic Age Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>On A Day</title>
   </head>
 <body>
   <div class="container">
-    <H1>Your Age on different planets!</H1>
-    <form id="person">
+    <form id="date-form">
       <div class="form-group row">
-        <label for="name" class="col-4 col-form-label">Name</label> 
-        <div class="col-8">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <i class="fa fa-address-book"></i>
-              </div>
-            </div> 
-            <input id="name" name="name" type="text" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="age" class="col-4 col-form-label">Age</label> 
-        <div class="col-8">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">
-                <i class="fa fa-align-right"></i>
-              </div>
-            </div> 
-            <input id="age" name="age" type="text" class="form-control">
-          </div>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="life-exp" class="col-4 col-form-label">Life Expectancy</label> 
-        <div class="col-8">
+        <label for="date" class="col-2 col-form-label">Date:</label>
+        <div class="col-4">
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text">
                 <i class="fa fa-calendar"></i>
               </div>
-            </div> 
-            <input id="life-exp" name="life-exp" type="text" class="form-control">
+            </div>
+            <input id="date" name="date" type="date" class="form-control">
           </div>
         </div>
-      </div> 
-      <div class="form-group row">
-        <div class="offset-4 col-8">
-          <h2>Age on:</h2>
-          <button id = "btn-merc" name="btn-merc" type="button" class="btn btn-primary">Mercury</button>
-          <button id = "btn-ven" name="btn-ven" type="button" class="btn btn-primary">Venus</button>
-          <button id = "btn-mars" name="btn-mars" type="button" class="btn btn-primary">Mars</button>
-          <button id = "btn-jup" name="btn-jup" type="button" class="btn btn-primary">Jupiter</button>
-          <h2>Years Left on:</h2>
-          <button id = "btn-merc-left" name="btn-merc-left" type="button" class="btn btn-primary">Mercury</button>
-          <button id = "btn-ven-left" name="btn-ven-left" type="button" class="btn btn-primary">Venus</button>
-          <button id = "btn-mars-left" name="btn-mars-left" type="button" class="btn btn-primary">Mars</button>
-          <button id = "btn-jup-left" name="btn-jup-left" type="button" class="btn btn-primary">Jupiter</button>
-        </div>
       </div>
-      <div class="form-group row offset-4">
-        <div id="response">
-  
+      <div class="form-group row">
+        <div class="offset-2 col-8">
+          <button name="submit" type="submit" class="btn btn-primary" id="date-submit">Submit</button>
         </div>
       </div>
     </form>
-
+    <div id="response"></div>
   </div>
 </body>
 </html>
