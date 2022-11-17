@@ -1,20 +1,14 @@
 export default class WikiService {
   static getWiki(day, month) {
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      let url = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/selected/${month}/${day}`;
-      
-      request.addEventListener('loadend', function() {
-        let response = JSON.parse(this.responseText);
-        if (this.status === 200) {
-          resolve(response);
+    return fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/selected/${month}/${day}`)
+      .then(response => {
+        if (!response.ok) {
+          const errorMsg = `${response.status} ${response.statusText}`;
+          throw new Error(errorMsg);
         } else {
-          reject([this, response, day, month]);
+          return response.json();
         }
-      });
-
-      request.open("GET", url, true);
-      request.send();
-    });
+      })
+      .catch(error => error);
   }
 }
